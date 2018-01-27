@@ -20,9 +20,11 @@ Use Postman to run
 POST     http://localhost:3000/books
          Params(title,author,summary)
 
-GET      http://localhost:3000/books/5a6cc1b60901ab7d321b977c
-
-DELETE   http://localhost:3000/books/5a6cc1b60901ab7d321b977c
-
-UPDATE.  http://localhost:3000/books/5a6cb8df82e4cc78d24906b5
+GET      http://localhost:3000/books/:id
+         Params (id is record ID from mLab)
+         
+DELETE   http://localhost:3000/books/:id
+         Params (id is record ID from mLab)
+         
+UPDATE.  http://localhost:3000/books/:id
          Params(title,author,summary)
