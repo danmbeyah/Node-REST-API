@@ -1,0 +1,19 @@
+{
+  "name": "Book Inventory",
+  "version": "1.0.0",
+  "description": "CRUD Node JS RESTful API using Express engine",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "Daniel Mbeyah",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}
