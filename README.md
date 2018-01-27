@@ -1,5 +1,5 @@
 # Node-REST-API
-This is a node RESTful API that uses Express engine and Mongo DB for CRUD operations.
+This is a node RESTful API that uses Express engine and Mongo DB for CRUD operations. You can add, update, retrieve or delete a book record from your database.
 
 Set Up:
 1. git clone "https://github.com/danmbeyah/Node-REST-API.git" .
