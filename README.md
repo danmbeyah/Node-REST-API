@@ -1,7 +1,7 @@
 # Node-REST-API
 This is a node RESTful API that uses Express engine and Mongo DB for CRUD operations. You can add, update, retrieve or delete a book record from your database.
 
-Set Up:
+# Set Up
 1. git clone "https://github.com/danmbeyah/Node-REST-API.git" .
 2. Update/Install node modules
    Run npm update
@@ -12,11 +12,11 @@ Set Up:
 5. Create an account on mLab where your Mongo DB will be hosted (https://mlab.com)
    For this repo, db is books and collection is books. Change user and password to reflect your settings in config.
 
-To run:
+# To Run Server
 
 npm run dev
 
-Testing:
+# Testing
 Use Postman to run 
 
 POST     http://localhost:8000/books
@@ -31,6 +31,6 @@ DELETE   http://localhost:8000/books/:id
 UPDATE.  http://localhost:8000/books/:id
          Params(title,author,summary)
          
-To Do:
+# To Do
 1. Add jwt authentication
 2. Develop React Native app to consume API
