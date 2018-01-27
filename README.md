@@ -13,10 +13,12 @@ Set Up:
    For this repo, db is books and collection is books. Change user and password to reflect your settings in config.
 
 To run:
+
 npm run dev
 
 Testing:
 Use Postman to run 
+
 POST     http://localhost:8000/books
          Params(title,author,summary)
 
