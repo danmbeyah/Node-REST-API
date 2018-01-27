@@ -17,14 +17,14 @@ npm run dev
 
 Testing:
 Use Postman to run 
-POST     http://localhost:3000/books
+POST     http://localhost:8000/books
          Params(title,author,summary)
 
-GET      http://localhost:3000/books/:id
+GET      http://localhost:8000/books/:id
          Params (id is record ID from mLab)
          
-DELETE   http://localhost:3000/books/:id
+DELETE   http://localhost:8000/books/:id
          Params (id is record ID from mLab)
          
-UPDATE.  http://localhost:3000/books/:id
+UPDATE.  http://localhost:8000/books/:id
          Params(title,author,summary)
