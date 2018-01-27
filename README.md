@@ -28,3 +28,6 @@ DELETE   http://localhost:8000/books/:id
          
 UPDATE.  http://localhost:8000/books/:id
          Params(title,author,summary)
+To Do:
+1. Add jwt authentication
+2. Develop React Native app to consume API
