@@ -16,7 +16,7 @@ module.exports = function(app,db){
 		})
 	})
 
-	//get book by id
+	//retrieve book by id
 	app.get('/books/:id', (req, res) => {
 		const id = req.params.id;
 		const details = {'_id': new ObjectID(id)}; //mongo requires id as an object, not just a simple string
