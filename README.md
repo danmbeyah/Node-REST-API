@@ -1,5 +1,5 @@
 # Node-REST-API
-This is a node RESTful API that uses Express engine and Mongo DB for CRUD operations. You can add, update, retrieve or delete a book record from your database.
+This is a node RESTful API that uses Express engine and Mongo DB for CRUD operations. You can add, update, retrieve or delete a book record from the books database. The API routes are protected and access authenticated using Json Web Token (jwt)
 
 # Set Up
 1. Clone the repo
@@ -12,7 +12,7 @@ This is a node RESTful API that uses Express engine and Mongo DB for CRUD operat
    
 3. Install dependencies
 
-   Run npm install -save express mongodb body-parser
+   Run npm install -save express mongodb body-parser jsonwebtoken
    
 4. Install nodemon, a dev dependency to automatically restart server after file changes
 
@@ -26,7 +26,9 @@ This is a node RESTful API that uses Express engine and Mongo DB for CRUD operat
 npm run dev
 
 # Testing
-Use Postman to run 
+Use Postman to run/access the APIs
+Login using http://localhost:8000/login to get access token. Set token in header for subsequent API calls below.
+Header {Authorization: Bearer <token>}
 
 POST     http://localhost:8000/books
          Params(title,author,summary)
@@ -41,5 +43,4 @@ UPDATE.  http://localhost:8000/books/:id
          Params(title,author,summary)
          
 # To Do
-1. Add jwt authentication
-2. Develop React Native app to consume API
+1. Develop React Native app to consume API
