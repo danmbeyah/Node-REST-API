@@ -1,8 +1,25 @@
 var ObjectID = require('mongodb').ObjectID
+const jwt = require('jsonwebtoken');
 
 module.exports = function(app,db){
+	//Login
+	app.post('/login', (req, res) => {
+		//Mock user details received from post
+		const user = {
+			id: 1,
+			username: 'daniel',
+			email: 'danmbeyah@gmail.com' 
+		}
+
+		jwt.sign({user}, 'secretkey', (err, token) => {
+			res.json({
+				token
+			})
+		})
+	})
+
 	//create book
-	app.post('/books', (req, res) =>{
+	app.post('/books', verifyToken, (req, res) =>{
 		//create book
 		//console.log(req.body);
 		//res.send('Hey John Snow, welcome to Kings landing');
@@ -17,7 +34,7 @@ module.exports = function(app,db){
 	})
 
 	//retrieve book by id
-	app.get('/books/:id', (req, res) => {
+	app.get('/books/:id', verifyToken, (req, res) => {
 		const id = req.params.id;
 		const details = {'_id': new ObjectID(id)}; //mongo requires id as an object, not just a simple string
 		db.collection('books').findOne(details, (err, item) =>{
@@ -30,7 +47,7 @@ module.exports = function(app,db){
 	})
 
 	//delete book by id
-	app.delete('/books/:id', (req, res) => {
+	app.delete('/books/:id', verifyToken, (req, res) => {
 		const id = req.params.id;
 		const details = {'_id': new ObjectID(id)};
 		db.collection('books').remove(details, (err, item) =>{
@@ -43,7 +60,7 @@ module.exports = function(app,db){
 	})
 
 	//update book by id
-	app.put('/books/:id', (req, res) => {
+	app.put('/books/:id', verifyToken, (req, res) => {
 		const id = req.params.id;
 		const details = {'_id': new ObjectID(id)};
 		const book = { text: req.body.book_body, title: req.body.title };
@@ -55,4 +72,28 @@ module.exports = function(app,db){
 			}
 		})
 	})
+
+	//verify token
+	//Token format Authorization: Bearer <authToken>
+	function verifyToken(req, res, next){
+		//Get auth header value
+		const bearerHeader = req.headers['authorization'];
+
+		//check if bearerHeader is defined
+		if(typeof bearerHeader !=='undefined'){
+			//Split Bearer <authToken> at space
+			const bearer = bearerHeader.split(' ');
+			//Get token from array
+			const bearerToken = bearer[1];
+			//Add ttoken to request
+			req.token = bearerToken;
+			//Call nect middleWare
+			next();
+		}else{
+			//forbidden
+			res.json({
+				error: 'White walkers are kept off by the wall...get an ice dragon or talk to Snow for access'
+			})
+		}
+	}
 }
